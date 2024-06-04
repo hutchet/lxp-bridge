@@ -169,9 +169,9 @@ pub struct ReadInputAll {
     pub bms_event_2: u16, // WarningCode_BMS
 
     // TODO: probably floats but need non-zero sample data to check. just guessing at the div100.
-    #[nom(Parse = "Utils::le_u16_div1000")]
+    #[nom(Parse = "Utils::le_u16_div10")]
     pub max_cell_voltage: f64,
-    #[nom(Parse = "Utils::le_u16_div1000")]
+    #[nom(Parse = "Utils::le_u16_div10")]
     pub min_cell_voltage: f64,
     #[nom(Parse = "Utils::le_u16_div10")]
     pub max_cell_temp: f64,
@@ -370,9 +370,9 @@ pub struct ReadInput2 {
 #[nom(LittleEndian)]
 pub struct ReadInput3 {
     #[nom(SkipBefore(2))] // bat_brand, bat_com_type
-    #[nom(Parse = "Utils::le_u16_div100")]
+    #[nom(Parse = "Utils::le_u16_div10")]
     pub max_chg_curr: f64,
-    #[nom(Parse = "Utils::le_u16_div100")]
+    #[nom(Parse = "Utils::le_u16_div10")]
     pub max_dischg_curr: f64,
     #[nom(Parse = "Utils::le_u16_div10")]
     pub charge_volt_ref: f64,
@@ -401,9 +401,9 @@ pub struct ReadInput3 {
     pub bms_event_2: u16,
 
     // TODO: probably floats but need non-zero sample data to check. just guessing at the div100.
-    #[nom(Parse = "Utils::le_u16_div1000")]
+    #[nom(Parse = "Utils::le_u16_div10")]
     pub max_cell_voltage: f64,
-    #[nom(Parse = "Utils::le_u16_div1000")]
+    #[nom(Parse = "Utils::le_u16_div10")]
     pub min_cell_voltage: f64,
     #[nom(Parse = "Utils::le_u16_div10")]
     pub max_cell_temp: f64,
